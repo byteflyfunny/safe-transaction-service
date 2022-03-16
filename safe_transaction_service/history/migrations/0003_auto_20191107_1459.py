@@ -27,8 +27,8 @@ class Migration(migrations.Migration):
                         primary_key=True, serialize=False, unique=True
                     ),
                 ),
-                ("gas_limit", models.PositiveIntegerField()),
-                ("gas_used", models.PositiveIntegerField()),
+                ("gas_limit", models.BigIntegerField()),
+                ("gas_used", models.BigIntegerField()),
                 ("timestamp", models.DateTimeField()),
                 ("block_hash", gnosis.eth.django.models.Sha3HashField(unique=True)),
                 ("parent_hash", gnosis.eth.django.models.Sha3HashField(unique=True)),

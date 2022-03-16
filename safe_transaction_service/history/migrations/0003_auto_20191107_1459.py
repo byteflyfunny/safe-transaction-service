@@ -23,12 +23,18 @@ class Migration(migrations.Migration):
             fields=[
                 (
                     "number",
-                    models.BigIntegerField(
+                    models.PositiveIntegerField(
                         primary_key=True, serialize=False, unique=True
                     ),
                 ),
-                ("gas_limit", models.BigIntegerField()),
-                ("gas_used", models.BigIntegerField()),
+                (
+                    "gas_limit",
+                    gnosis.eth.django.models.Uint256Field(default=None, null=True),
+                ),
+                (
+                    "gas_used",
+                    gnosis.eth.django.models.Uint256Field(default=None, null=True),
+                ),
                 ("timestamp", models.DateTimeField()),
                 ("block_hash", gnosis.eth.django.models.Sha3HashField(unique=True)),
                 ("parent_hash", gnosis.eth.django.models.Sha3HashField(unique=True)),

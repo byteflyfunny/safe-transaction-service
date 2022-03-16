@@ -226,9 +226,9 @@ class EthereumBlockQuerySet(models.QuerySet):
 
 class EthereumBlock(models.Model):
     objects = EthereumBlockManager.from_queryset(EthereumBlockQuerySet)()
-    number = models.BigIntegerField(primary_key=True)
-    gas_limit = models.BigIntegerField()
-    gas_used = models.BigIntegerField()
+    number = models.PositiveIntegerField(primary_key=True)
+    gas_limit = Uint256Field(null=True, default=None)
+    gas_used = Uint256Field(null=True, default=None)
     timestamp = models.DateTimeField()
     block_hash = Keccak256Field(unique=True)
     parent_hash = Keccak256Field(unique=True)

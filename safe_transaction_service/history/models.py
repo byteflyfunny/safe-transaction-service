@@ -226,7 +226,7 @@ class EthereumBlockQuerySet(models.QuerySet):
 
 class EthereumBlock(models.Model):
     objects = EthereumBlockManager.from_queryset(EthereumBlockQuerySet)()
-    number = models.PositiveIntegerField(primary_key=True)
+    number = models.BigIntegerField(primary_key=True)
     gas_limit = models.BigIntegerField()
     gas_used = models.BigIntegerField()
     timestamp = models.DateTimeField()

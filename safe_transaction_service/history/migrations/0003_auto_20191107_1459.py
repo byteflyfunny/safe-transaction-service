@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
             fields=[
                 (
                     "number",
-                    models.PositiveIntegerField(
+                    models.BigIntegerField(
                         primary_key=True, serialize=False, unique=True
                     ),
                 ),

@@ -10,6 +10,7 @@ else
 fi
 
 echo "==> $(date +%H:%M:%S) ==> Migrating Django models... "
+python manage.py migrate sites
 python manage.py migrate --noinput
 
 echo "==> $(date +%H:%M:%S) ==> Setting up service... "

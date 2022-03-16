@@ -113,12 +113,14 @@ class AboutEthereumRPCView(APIView):
         except (IOError, ValueError):
             syncing = "Error getting syncing status"
 
-        ethereum_network = ethereum_client.get_network()
+        # ethereum_network = ethereum_client.get_network()
+        chain_id = ethereum_client.w3.eth.chain_id
+
         return {
             "version": client_version,
             "block_number": ethereum_client.current_block_number,
-            "chain_id": ethereum_network.value,
-            "chain": ethereum_network.name,
+            "chain_id": chain_id,
+            "chain": "TELEPORT",
             "syncing": syncing,
         }
 
